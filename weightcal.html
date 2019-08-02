@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weight Converter</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reboot.css" rel="stylesheet">
+    <link href="css/bootstrap-reboot-min.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+
+    <style>
+        body{
+            margin-top: 70px;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-3 text-center mb-3"> Weight Converter</h1>
+                <form>
+                    <div class="form-group">
+                        <input id="lbsInput" type="number" class="form-control form-control-lg" placeholder="Enter Pounds...">
+                    </div>
+                </form>
+                <div id="output">
+                    <div class="card card-primary mb-2">
+                        <div class="card-block">
+                            <h4 id="firsth4">Grams: </h4>
+                            <div id="gramsOutput"></div>
+                        </div>
+                    </div>
+
+                    <div class="card card-success mb-2">
+                            <div class="card-block">
+                                <h4 id="secondh4">Ounces: </h4>
+                                <div id="ozOutput"></div>
+                            </div>
+                        </div>
+
+                        <div class="card card-danger mb-2">
+                                <div class="card-block">
+                                    <h4 id="thirdh4">Kilograms: </h4>
+                                    <div id="kgOutput"></div>
+                                </div>
+                            </div>     
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="lbsbutton" type="button">LBS</button>
+            <button id="gramsbutton">Grams</button>
+            <button id="ozbutton">OZ</button>
+            <button id="kgbutton">KG</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('lbsbutton').addEventListener('click', function(){
+            document.getElementById('lbsInput').value = 0;
+           document.getElementById('gramsOutput').innerHTML = 0;
+           document.getElementById('ozOutput').innerHTML = 0;
+           document.getElementById('kgOutput').innerHTML = 0;
+            document.getElementById('lbsInput').addEventListener('input', function(e){
+            // get userinput value for punds and put in variable
+            var lbs =e.target.value; // same as document.getElemetbyID().value
+            // set the respective output
+            document.getElementById('gramsOutput').innerHTML = lbs/0.0022046;
+
+            document.getElementById('ozOutput').innerHTML = lbs/2.2046;
+
+            document.getElementById('kgOutput').innerHTML = lbs * 16;
+            
+        })
+        });
+       document.getElementById('gramsbutton').addEventListener('click', function(){
+           document.getElementById('lbsInput').value = 0;
+           document.getElementById('gramsOutput').innerHTML = 0;
+           document.getElementById('ozOutput').innerHTML = 0;
+           document.getElementById('kgOutput').innerHTML = 0;
+           document.getElementById('firsth4').textContent ='LBS:';
+
+        document.getElementById('lbsInput').addEventListener('input', function(e){
+            // get userinput value for punds and put in variable
+            var gramms =e.target.value; // same as document.getElemetbyID().value
+            // set the respective output
+
+            
+            document.getElementById('gramsOutput').innerHTML = gramms * 0.0022046;
+
+            document.getElementById('ozOutput').innerHTML = gramms * 0.0352739619;
+
+            document.getElementById('kgOutput').innerHTML = gramms * 0.001;
+            
+        })
+
+       }) 
+        
+    </script>
+</body>
+</html>
